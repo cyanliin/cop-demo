@@ -10,12 +10,17 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(0, 0, speed);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        Vector3 dir = new Vector3(h, 0, v);
+
+        rb.AddForce(dir * speed);
     }
 }
